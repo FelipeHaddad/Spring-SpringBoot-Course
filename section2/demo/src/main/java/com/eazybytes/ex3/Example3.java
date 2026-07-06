@@ -1,16 +1,18 @@
-package com.eazybytes.ex1;
+package com.eazybytes.ex3;
 
 
-import com.eazybytes.ex1.beans.Vehicle;
-import com.eazybytes.ex1.config.ProjectConfig;
+import com.eazybytes.ex3.beans.Vehicle;
+import com.eazybytes.ex3.config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Example1 {
+public class Example3 {
 
     public static void main(String[] args){
 
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        var veh = context.getBean("vehicle1", Vehicle.class);
+        var veh = context.getBean(Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh.getName());
+        veh.sayHello();
+
     }
 }

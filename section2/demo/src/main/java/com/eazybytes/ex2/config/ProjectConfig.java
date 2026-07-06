@@ -1,28 +1,30 @@
-package com.eazybytes.ex1.config;
+package com.eazybytes.ex2.config;
 
-import com.eazybytes.ex1.beans.Vehicle;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import com.eazybytes.ex2.beans.Vehicle;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@Import({AnotherProjectConfig.class})
 public class ProjectConfig {
 
 
-    @Bean
+    @Bean(name = "teslaVehicle")
     Vehicle vehicle1(){
         var veh = new Vehicle();
         veh.setName("Tesla");
         return veh;
     }
 
-    @Bean
+    @Bean(value = "audiVehicle")
     Vehicle vehicle2(){
         var veh = new Vehicle();
         veh.setName("Audi");
         return veh;
     }
 
-    @Bean
+    @Primary
+    @Bean("mercedesVehicle")
+    @Description("This is a Vehicle class bean")
     Vehicle vehicle3(){
         var veh = new Vehicle();
         veh.setName("Mercedes");
