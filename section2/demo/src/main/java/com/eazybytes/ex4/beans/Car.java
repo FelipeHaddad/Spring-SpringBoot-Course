@@ -10,7 +10,8 @@ public class Car {
     private String name;
 
 //    @Autowired
-    private Engine engine;
+    private
+Engine engine;
 
     public Engine getEngine() {
         return engine;
